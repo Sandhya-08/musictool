@@ -1,0 +1,29 @@
+>>> from musictool.scale import Scale
+>>> from musictool.chord import Chord
+
+>>> scale = Scale.from_name('G', 'harmonic minor')
+
+>>> scale.root
+Note(name=G)
+
+>>> scale.notes
+frozenset({Note(name=G),
+           Note(name=D),
+           Note(name=D),
+           Note(name=F),
+           Note(name=E),
+           Note(name=D),
+           Note(name=C)})
+
+>>> scale.bits
+'101101011001'
+
+>>> scale.intervals
+frozenset({0, 2, 3, 5, 7, 9, 11})
+
+>>> scale.triads
+(GDE/G, DFD/D, DEC/D, FDG/F, ECD/E, DGD/D, CDF/C)
+
+>>> chord = Chord.from_str('GDE/G')
+>>> chord == scale.triads[0]
+True
